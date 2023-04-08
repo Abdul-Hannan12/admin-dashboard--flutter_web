@@ -33,7 +33,7 @@ class SideMenuController extends GetxController {
       case authenticationPageRoute:
         return _customIcon(Icons.exit_to_app, item);
       default:
-        return _customIcon(Icons.error_outline, item);
+        return _customIcon(Icons.exit_to_app, item);
     }
   }
 

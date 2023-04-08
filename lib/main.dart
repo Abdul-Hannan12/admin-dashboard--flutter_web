@@ -1,3 +1,4 @@
+import 'package:admin_dashboard_web/controllers/navigation_controller.dart';
 import 'package:admin_dashboard_web/layout.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,6 +7,7 @@ import 'controllers/menu_controller.dart';
 
 void main() {
   Get.put(SideMenuController());
+  Get.put(NavigationController());
   runApp(const MyApp());
 }
 
