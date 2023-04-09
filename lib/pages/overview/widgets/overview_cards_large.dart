@@ -12,7 +12,6 @@ class OverviewCardsLargeScreen extends StatelessWidget {
         InfoCard(
           title: "Rides in progress",
           value: "7",
-          isActive: false,
           topColor: Colors.orange,
           onTap: () {},
         ),
@@ -20,7 +19,6 @@ class OverviewCardsLargeScreen extends StatelessWidget {
         InfoCard(
           title: "Packages Delivered",
           value: "7",
-          isActive: false,
           topColor: Colors.lightGreen,
           onTap: () {},
         ),
@@ -28,7 +26,6 @@ class OverviewCardsLargeScreen extends StatelessWidget {
         InfoCard(
           title: "Cancelled Delivery",
           value: "3",
-          isActive: false,
           topColor: Colors.redAccent,
           onTap: () {},
         ),
@@ -36,7 +33,6 @@ class OverviewCardsLargeScreen extends StatelessWidget {
         InfoCard(
           title: "Scheduled Deliveries",
           value: "3",
-          isActive: false,
           topColor: Colors.redAccent,
           onTap: () {},
         ),

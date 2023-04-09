@@ -13,7 +13,7 @@ class InfoCard extends StatelessWidget {
     required this.title,
     required this.value,
     this.topColor,
-    required this.isActive,
+    this.isActive = false,
     required this.onTap,
   }) : super(key: key);
 

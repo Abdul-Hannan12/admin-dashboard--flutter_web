@@ -12,7 +12,7 @@ class InfoCardSmall extends StatelessWidget {
     Key? key,
     required this.title,
     required this.value,
-    required this.isActive,
+    this.isActive = false,
     required this.onTap,
   }) : super(key: key);
 
