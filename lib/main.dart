@@ -1,3 +1,4 @@
+import 'package:admin_dashboard_web/constants/style.dart';
 import 'package:admin_dashboard_web/controllers/navigation_controller.dart';
 import 'package:admin_dashboard_web/layout.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Admin Dashboard',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: light,
         textTheme: GoogleFonts.mulishTextTheme(Theme.of(context).textTheme)
             .apply(bodyColor: Colors.black),
         pageTransitionsTheme: const PageTransitionsTheme(builders: {
