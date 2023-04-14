@@ -1,4 +1,4 @@
-import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:charts_flutter_new/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:admin_dashboard_web/constants/style.dart';
 

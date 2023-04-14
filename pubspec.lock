@@ -29,18 +29,18 @@ packages:
     dependency: transitive
     description:
       name: charts_common
-      sha256: "12b81d23d81773a5bd750509f0fd6c4de4fbfbd2ef840cb196ff9be58eefd232"
+      sha256: "7b8922f9b0d9b134122756a787dab1c3946ae4f3fc5022ff323ba0014998ea02"
       url: "https://pub.dev"
     source: hosted
-    version: "0.10.0"
-  charts_flutter:
+    version: "0.12.0"
+  charts_flutter_new:
     dependency: "direct main"
     description:
-      name: charts_flutter
-      sha256: e9466fe2cdcb4e4e95c631af1ebe1a38932700c1441b397a1db60df961be51fd
+      name: charts_flutter_new
+      sha256: c8c106c5d6acd145d6969f85aa65412ccf2c27bbb0177ec11c10a285a286524a
       url: "https://pub.dev"
     source: hosted
-    version: "0.10.0"
+    version: "0.12.0"
   clock:
     dependency: transitive
     description:

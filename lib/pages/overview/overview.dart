@@ -1,9 +1,12 @@
 import 'package:admin_dashboard_web/constants/controllers.dart';
 import 'package:admin_dashboard_web/constants/style.dart';
 import 'package:admin_dashboard_web/helpers/responsiveness.dart';
+import 'package:admin_dashboard_web/pages/overview/widgets/available_drivers.dart';
 import 'package:admin_dashboard_web/pages/overview/widgets/overview_cards_large.dart';
 import 'package:admin_dashboard_web/pages/overview/widgets/overview_cards_medium.dart';
 import 'package:admin_dashboard_web/pages/overview/widgets/overview_cards_small.dart';
+import 'package:admin_dashboard_web/pages/overview/widgets/revenue_section_large.dart';
+import 'package:admin_dashboard_web/pages/overview/widgets/revenue_section_small.dart';
 import 'package:admin_dashboard_web/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -41,7 +44,12 @@ class OverViewPage extends StatelessWidget {
                 else
                   const OverviewCardsLargeScreen()
               else
-                const OverViewCardsSmallScreen()
+                const OverViewCardsSmallScreen(),
+              if (!ResponsiveWidget.isSmallScreen(context))
+                const RevenueSectionLarge()
+              else
+                const RevenueSectionSmall(),
+              const AvailableDrivers()
             ],
           ),
         )
