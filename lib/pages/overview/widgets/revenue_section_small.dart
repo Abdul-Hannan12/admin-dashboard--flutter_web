@@ -57,9 +57,10 @@ class RevenueSectionSmall extends StatelessWidget {
           SizedBox(
             height: 275,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: const [
                     RevenueInfo(
                       title: "Today's revenue",
@@ -73,6 +74,7 @@ class RevenueSectionSmall extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: const [
                     RevenueInfo(
                       title: "Last 30 days",

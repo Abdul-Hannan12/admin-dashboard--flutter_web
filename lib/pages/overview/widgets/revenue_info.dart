@@ -13,7 +13,9 @@ class RevenueInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: 75,
+      width: 130,
       child: RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
