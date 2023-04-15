@@ -1,6 +1,6 @@
 import 'package:admin_dashboard_web/constants/style.dart';
 import 'package:admin_dashboard_web/controllers/navigation_controller.dart';
-import 'package:admin_dashboard_web/layout.dart';
+import 'package:admin_dashboard_web/pages/authentication/authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
         }),
       ),
-      home: const SiteLayout(),
+      home: const AuthenticationPage(),
     );
   }
 }

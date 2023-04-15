@@ -92,7 +92,7 @@ class AvailableDrivers extends StatelessWidget {
                           vertical: 6,
                         ),
                         child: CustomText(
-                          "Available Delivery",
+                          "Assign Delivery",
                           color: active.withOpacity(.7),
                           weight: FontWeight.bold,
                         ),
