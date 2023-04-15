@@ -1,5 +1,4 @@
 import 'package:admin_dashboard_web/constants/style.dart';
-import 'package:admin_dashboard_web/layout.dart';
 import 'package:admin_dashboard_web/routing/routes.dart';
 import 'package:admin_dashboard_web/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -21,34 +20,24 @@ class AuthenticationPage extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 12),
-                    child: Image.asset("icons/logo.png"),
-                  ),
-                  Expanded(
-                    child: Container(),
+                  const SizedBox(width: 30),
+                  Image.asset(
+                    "icons/logo_large.png",
+                    height: 100,
                   ),
                 ],
               ),
-              const SizedBox(height: 30),
-              Row(
-                children: [
-                  Text(
-                    "Login",
-                    style: GoogleFonts.roboto(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+              const SizedBox(height: 15),
+              Text(
+                "Login",
+                style: GoogleFonts.roboto(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              Row(
-                children: const [
-                  CustomText(
-                    "Welcome back to the admin panel",
-                    color: lightGrey,
-                  ),
-                ],
+              const CustomText(
+                "Welcome back to the admin panel",
+                color: lightGrey,
               ),
               const SizedBox(height: 15),
               TextField(
