@@ -51,8 +51,8 @@ class ClientsTable extends StatelessWidget {
           7,
           (index) => DataRow(
             cells: [
-              const DataCell(CustomText('Santos Enoque')),
-              const DataCell(CustomText('New York City')),
+              const DataCell(CustomText('Rocky Khan')),
+              const DataCell(CustomText('Pakistan')),
               DataCell(
                 Row(
                   mainAxisSize: MainAxisSize.min,

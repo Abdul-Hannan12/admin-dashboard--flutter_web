@@ -1,5 +1,6 @@
 import 'package:admin_dashboard_web/constants/style.dart';
 import 'package:admin_dashboard_web/layout.dart';
+import 'package:admin_dashboard_web/routing/routes.dart';
 import 'package:admin_dashboard_web/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -92,7 +93,7 @@ class AuthenticationPage extends StatelessWidget {
               const SizedBox(height: 15),
               InkWell(
                 onTap: () {
-                  Get.offAll(() => const SiteLayout());
+                  Get.offAllNamed(rootRoute);
                 },
                 child: Container(
                   decoration: BoxDecoration(

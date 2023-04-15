@@ -51,8 +51,8 @@ class DriverTable extends StatelessWidget {
           7,
           (index) => DataRow(
             cells: [
-              const DataCell(CustomText('Santos Enoque')),
-              const DataCell(CustomText('New York City')),
+              const DataCell(CustomText('Abdul Hannan')),
+              const DataCell(CustomText('Peshawar')),
               DataCell(
                 Row(
                   mainAxisSize: MainAxisSize.min,

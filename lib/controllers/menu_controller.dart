@@ -7,7 +7,7 @@ import '../constants/style.dart';
 class SideMenuController extends GetxController {
   static SideMenuController instance = Get.find();
 
-  var activeItem = overviewPageRoute.obs;
+  var activeItem = overviewPageDisplayName.obs;
   var hoverItem = "".obs;
 
   makeActive(String item) {
@@ -24,13 +24,13 @@ class SideMenuController extends GetxController {
 
   Widget returnIconFor(String item) {
     switch (item) {
-      case overviewPageRoute:
+      case overviewPageDisplayName:
         return _customIcon(Icons.trending_up, item);
-      case driversPageRoute:
+      case driversPageDisplayName:
         return _customIcon(Icons.drive_eta, item);
-      case clientsPageRoute:
+      case clientsPageDisplayName:
         return _customIcon(Icons.people_alt_outlined, item);
-      case authenticationPageRoute:
+      case authenticationPageDisplayName:
         return _customIcon(Icons.exit_to_app, item);
       default:
         return _customIcon(Icons.exit_to_app, item);
