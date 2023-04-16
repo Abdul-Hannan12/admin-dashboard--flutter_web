@@ -29,8 +29,9 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
             ),
       title: Row(
         children: [
-          const Visibility(
-            child: CustomText(
+          Visibility(
+            visible: !ResponsiveWidget.isSmallScreen(context),
+            child: const CustomText(
               "Dash",
               color: lightGrey,
               size: 20,
@@ -42,6 +43,7 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
             icon: Icon(
               Icons.settings,
               color: dark.withOpacity(.7),
+              size: ResponsiveWidget.maxWidth(context, 370) ? 18 : 23,
             ),
           ),
           Stack(
@@ -51,6 +53,7 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
                 icon: Icon(
                   Icons.notifications,
                   color: dark.withOpacity(.7),
+                  size: ResponsiveWidget.maxWidth(context, 370) ? 18 : 23,
                 ),
               ),
               Positioned(
@@ -76,12 +79,17 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
             color: lightGrey,
           ),
           const SizedBox(width: 24),
-          const CustomText(
-            "Abdul Hannan",
-            color: lightGrey,
+          Visibility(
+            visible: !ResponsiveWidget.maxWidth(context, 350),
+            child: const CustomText(
+              "Abdul Hannan",
+              color: lightGrey,
+            ),
           ),
           const SizedBox(width: 16),
           Container(
+            height: ResponsiveWidget.maxWidth(context, 370) ? 30 : null,
+            width: ResponsiveWidget.maxWidth(context, 370) ? 30 : null,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(30),
@@ -89,11 +97,12 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
             child: Container(
               padding: const EdgeInsets.all(2),
               margin: const EdgeInsets.all(2),
-              child: const CircleAvatar(
+              child: CircleAvatar(
                 backgroundColor: light,
                 child: Icon(
                   Icons.person_outline,
                   color: dark,
+                  size: ResponsiveWidget.maxWidth(context, 370) ? 18 : 23,
                 ),
               ),
             ),

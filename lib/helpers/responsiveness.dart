@@ -35,6 +35,10 @@ class ResponsiveWidget extends StatelessWidget {
         MediaQuery.of(context).size.width >= mediumScreenSize;
   }
 
+  static bool maxWidth(BuildContext context, double width) {
+    return MediaQuery.of(context).size.width <= width;
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(

@@ -1,7 +1,6 @@
 import 'package:admin_dashboard_web/constants/controllers.dart';
 import 'package:admin_dashboard_web/constants/style.dart';
 import 'package:admin_dashboard_web/helpers/responsiveness.dart';
-import 'package:admin_dashboard_web/pages/authentication/authentication.dart';
 import 'package:admin_dashboard_web/routing/routes.dart';
 import 'package:admin_dashboard_web/widgets/custom_text.dart';
 import 'package:admin_dashboard_web/widgets/side_menu_item.dart';
@@ -21,31 +20,21 @@ class SideMenu extends StatelessWidget {
           if (ResponsiveWidget.isSmallScreen(context))
             Column(
               mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 40),
-                Row(
-                  children: [
-                    SizedBox(width: width / 48),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        right: 12,
-                      ),
-                      child: Image.asset("icons/logo.png"),
-                    ),
-                    const Flexible(
-                      child: CustomText(
-                        "Dash",
-                        size: 20,
-                        weight: FontWeight.bold,
-                        color: active,
-                      ),
-                    ),
-                    SizedBox(width: width / 48),
-                  ],
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: width / 48,
+                  ),
+                  child: Image.asset(
+                    "icons/logo_large.png",
+                    width: 150,
+                  ),
                 ),
               ],
             ),
-          const SizedBox(height: 40),
+          const SizedBox(height: 10),
           Divider(color: lightGrey.withOpacity(.1)),
           Column(
             mainAxisSize: MainAxisSize.min,
