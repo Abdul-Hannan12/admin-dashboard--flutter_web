@@ -2,7 +2,6 @@ import 'package:admin_dashboard_web/constants/controllers.dart';
 import 'package:admin_dashboard_web/constants/style.dart';
 import 'package:admin_dashboard_web/helpers/responsiveness.dart';
 import 'package:admin_dashboard_web/routing/routes.dart';
-import 'package:admin_dashboard_web/widgets/custom_text.dart';
 import 'package:admin_dashboard_web/widgets/side_menu_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

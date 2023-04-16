@@ -1,7 +1,6 @@
 import 'package:admin_dashboard_web/widgets/custom_text.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
-
 import '../../../constants/style.dart';
 
 class AvailableDrivers extends StatelessWidget {
