@@ -1,8 +1,8 @@
 import 'package:admin_dashboard_web/pages/overview/widgets/revenue_info.dart';
 import 'package:admin_dashboard_web/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
-
 import '../../../constants/style.dart';
+import '../../../helpers/responsiveness.dart';
 import 'bar_chart.dart';
 
 class RevenueSectionSmall extends StatelessWidget {
@@ -10,6 +10,58 @@ class RevenueSectionSmall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final largeRevenueChildren = [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: const [
+          RevenueInfo(
+            title: "Today's revenue",
+            amount: "23",
+          ),
+          RevenueInfo(
+            title: "Last 7 days",
+            amount: "150",
+          ),
+        ],
+      ),
+      const SizedBox(height: 30),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: const [
+          RevenueInfo(
+            title: "Last 30 days",
+            amount: "1,203",
+          ),
+          RevenueInfo(
+            title: "Last 12 months",
+            amount: "3,234",
+          ),
+        ],
+      )
+    ];
+    const smallRevenueChildren = [
+      SizedBox(height: 30),
+      RevenueInfo(
+        title: "Today's revenue",
+        amount: "23",
+      ),
+      SizedBox(height: 15),
+      RevenueInfo(
+        title: "Last 7 days",
+        amount: "150",
+      ),
+      SizedBox(height: 15),
+      RevenueInfo(
+        title: "Last 30 days",
+        amount: "1,203",
+      ),
+      SizedBox(height: 15),
+      RevenueInfo(
+        title: "Last 12 months",
+        amount: "3,234",
+      ),
+    ];
+
     return Container(
       padding: const EdgeInsets.all(24),
       margin: const EdgeInsets.symmetric(vertical: 30),
@@ -55,38 +107,12 @@ class RevenueSectionSmall extends StatelessWidget {
             color: lightGrey,
           ),
           SizedBox(
-            height: 275,
+            height: ResponsiveWidget.maxWidth(context, 345) ? 375 : 275,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
-                    RevenueInfo(
-                      title: "Today's revenue",
-                      amount: "23",
-                    ),
-                    RevenueInfo(
-                      title: "Last 7 days",
-                      amount: "150",
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 30),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
-                    RevenueInfo(
-                      title: "Last 30 days",
-                      amount: "1,203",
-                    ),
-                    RevenueInfo(
-                      title: "Last 12 months",
-                      amount: "3,234",
-                    ),
-                  ],
-                ),
-              ],
+              children: ResponsiveWidget.maxWidth(context, 345)
+                  ? smallRevenueChildren
+                  : largeRevenueChildren,
             ),
           ),
         ],

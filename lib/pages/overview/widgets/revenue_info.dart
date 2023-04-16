@@ -2,6 +2,8 @@
 import 'package:admin_dashboard_web/constants/style.dart';
 import 'package:flutter/material.dart';
 
+import '../../../helpers/responsiveness.dart';
+
 class RevenueInfo extends StatelessWidget {
   final String title;
   final String amount;
