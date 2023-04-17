@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 import '../../constants/controllers.dart';
-import '../../helpers/responsiveness.dart';
 
 class DriversPage extends StatelessWidget {
   const DriversPage({super.key});
@@ -18,9 +17,7 @@ class DriversPage extends StatelessWidget {
           () => Row(
             children: [
               Container(
-                margin: EdgeInsets.only(
-                  top: ResponsiveWidget.isSmallScreen(context) ? 56 : 6,
-                ),
+                margin: const EdgeInsets.only(top: 6),
                 child: CustomText(
                   menuController.activeItem.value.toCapitalized(),
                   size: 24,

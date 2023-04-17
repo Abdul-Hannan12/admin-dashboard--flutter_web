@@ -3,6 +3,7 @@ import 'package:admin_dashboard_web/constants/style.dart';
 import 'package:admin_dashboard_web/helpers/responsiveness.dart';
 import 'package:admin_dashboard_web/routing/routes.dart';
 import 'package:admin_dashboard_web/widgets/side_menu_item.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -27,7 +28,9 @@ class SideMenu extends StatelessWidget {
                     left: width / 48,
                   ),
                   child: Image.asset(
-                    "icons/logo_large.png",
+                    kIsWeb
+                        ? "icons/logo_large.png"
+                        : "assets/icons/logo_large.png",
                     width: 150,
                   ),
                 ),
@@ -48,10 +51,10 @@ class SideMenu extends StatelessWidget {
 
                       if (!menuController.isActive(item.name)) {
                         menuController.makeActive(item.name);
-                        if (ResponsiveWidget.isSmallScreen(context)) {
-                          Get.back();
-                        }
                         navigationController.navigateTo(item.route);
+                      }
+                      if (ResponsiveWidget.isSmallScreen(context)) {
+                        Get.back();
                       }
                     }))
                 .toList(),

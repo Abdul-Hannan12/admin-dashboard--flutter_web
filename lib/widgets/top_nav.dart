@@ -1,5 +1,6 @@
 import 'package:admin_dashboard_web/constants/style.dart';
 import 'package:admin_dashboard_web/helpers/responsiveness.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_text.dart';
@@ -13,7 +14,9 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
                 Container(
                   padding: const EdgeInsets.only(left: 14),
                   child: Image.asset(
-                    'icons/logo_small.png',
+                    kIsWeb
+                        ? "icons/logo_small.png"
+                        : "assets/icons/logo_small.png",
                     width: 28,
                   ),
                 )
@@ -80,7 +83,7 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
           ),
           const SizedBox(width: 24),
           Visibility(
-            visible: !ResponsiveWidget.maxWidth(context, 350),
+            visible: !ResponsiveWidget.maxWidth(context, 360),
             child: const CustomText(
               "Abdul Hannan",
               color: lightGrey,

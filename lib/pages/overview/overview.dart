@@ -22,9 +22,7 @@ class OverViewPage extends StatelessWidget {
           () => Row(
             children: [
               Container(
-                margin: EdgeInsets.only(
-                  top: ResponsiveWidget.isSmallScreen(context) ? 56 : 6,
-                ),
+                margin: const EdgeInsets.only(top: 6),
                 child: CustomText(
                   menuController.activeItem.value.toCapitalized(),
                   size: 24,

@@ -1,16 +1,26 @@
+import 'package:admin_dashboard_web/constants/controllers.dart';
 import 'package:admin_dashboard_web/constants/style.dart';
 import 'package:admin_dashboard_web/routing/routes.dart';
 import 'package:admin_dashboard_web/widgets/custom_text.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AuthenticationPage extends StatelessWidget {
+class AuthenticationPage extends StatefulWidget {
   const AuthenticationPage({super.key});
+
+  @override
+  State<AuthenticationPage> createState() => _AuthenticationPageState();
+}
+
+class _AuthenticationPageState extends State<AuthenticationPage> {
+  bool checkedValue = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: Container(
           constraints: const BoxConstraints(maxWidth: 400),
@@ -22,7 +32,9 @@ class AuthenticationPage extends StatelessWidget {
                 children: [
                   const SizedBox(width: 30),
                   Image.asset(
-                    "icons/logo_large.png",
+                    kIsWeb
+                        ? "icons/logo_large.png"
+                        : "assets/icons/logo_large.png",
                     height: 100,
                   ),
                 ],
@@ -67,8 +79,12 @@ class AuthenticationPage extends StatelessWidget {
                   Row(
                     children: [
                       Checkbox(
-                        value: true,
-                        onChanged: (value) {},
+                        value: checkedValue,
+                        onChanged: (value) {
+                          setState(() {
+                            checkedValue = value ?? false;
+                          });
+                        },
                       ),
                       const CustomText("Remember Me"),
                     ],
@@ -82,6 +98,7 @@ class AuthenticationPage extends StatelessWidget {
               const SizedBox(height: 15),
               InkWell(
                 onTap: () {
+                  menuController.makeActive(overviewPageDisplayName);
                   Get.offAllNamed(rootRoute);
                 },
                 child: Container(
@@ -102,7 +119,9 @@ class AuthenticationPage extends StatelessWidget {
               RichText(
                 text: const TextSpan(
                   children: [
-                    TextSpan(text: "Do not have admin credentials? "),
+                    TextSpan(
+                        text: "Do not have admin credentials? ",
+                        style: TextStyle(color: Colors.black)),
                     TextSpan(
                       text: "Request credentials!",
                       style: TextStyle(color: active),
