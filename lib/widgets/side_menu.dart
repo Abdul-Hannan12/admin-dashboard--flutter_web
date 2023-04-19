@@ -6,6 +6,7 @@ import 'package:admin_dashboard_web/widgets/side_menu_item.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({super.key});
@@ -43,8 +44,12 @@ class SideMenu extends StatelessWidget {
             children: sideMenuItems
                 .map((item) => SideMenuItem(
                     itemName: item.name,
-                    onTap: () {
+                    onTap: () async {
                       if (item.route == authenticationPageRoute) {
+                        SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                        prefs.clear();
+                        userController.clearUser();
                         menuController.makeActive(overviewPageDisplayName);
                         Get.offAllNamed(authenticationPageRoute);
                       }
@@ -53,6 +58,7 @@ class SideMenu extends StatelessWidget {
                         menuController.makeActive(item.name);
                         navigationController.navigateTo(item.route);
                       }
+                      // ignore: use_build_context_synchronously
                       if (ResponsiveWidget.isSmallScreen(context)) {
                         Get.back();
                       }

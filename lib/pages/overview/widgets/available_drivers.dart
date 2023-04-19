@@ -81,19 +81,22 @@ class AvailableDrivers extends StatelessWidget {
                       ),
                     ),
                     DataCell(
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(color: active, width: .5),
-                            color: light,
-                            borderRadius: BorderRadius.circular(20)),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 6,
-                        ),
-                        child: CustomText(
-                          "Assign",
-                          color: active.withOpacity(.7),
-                          weight: FontWeight.bold,
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(color: active, width: .5),
+                              color: light,
+                              borderRadius: BorderRadius.circular(20)),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 6,
+                          ),
+                          child: CustomText(
+                            "Assign",
+                            color: active.withOpacity(.7),
+                            weight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
