@@ -36,7 +36,6 @@ const signUpUser = asyncHandler(async (req, res) => {
 
   const user = await User.create({
     name,
-    phone,
     email,
     password: enc_pass,
   });

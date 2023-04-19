@@ -45,3 +45,4 @@ app.*.map.json
 
 #custom
 server/node_modules
+seerver/.env
