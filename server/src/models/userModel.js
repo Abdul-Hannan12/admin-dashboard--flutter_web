@@ -15,6 +15,10 @@ const userSchema = mongoose.Schema({
     type: String,
     require: true,
   },
+  type: {
+    type: String,
+    default: "user",
+  },
 });
 
 userSchema.methods.matchPass = async function (enteredPass) {

@@ -1,10 +1,8 @@
-import 'package:admin_dashboard_web/constants/controllers.dart';
 import 'package:admin_dashboard_web/constants/style.dart';
-import 'package:admin_dashboard_web/routing/routes.dart';
+import 'package:admin_dashboard_web/services/auth_service.dart';
 import 'package:admin_dashboard_web/widgets/custom_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AuthenticationPage extends StatefulWidget {
@@ -16,6 +14,29 @@ class AuthenticationPage extends StatefulWidget {
 
 class _AuthenticationPageState extends State<AuthenticationPage> {
   bool checkedValue = true;
+
+  final _signInFormKey = GlobalKey<FormState>();
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  final AuthService authService = AuthService();
+  bool _passwordVisible = false;
+
+  void signInUser() {
+    authService.signInUser(
+      context: context,
+      email: _emailController.text,
+      password: _passwordController.text,
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,67 +73,105 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
                 color: lightGrey,
               ),
               const SizedBox(height: 15),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: "Email",
-                  hintText: "abc@domain.com",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 15),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: "Password",
-                  hintText: "12345678",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 15),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Checkbox(
-                        value: checkedValue,
-                        onChanged: (value) {
-                          setState(() {
-                            checkedValue = value ?? false;
-                          });
-                        },
+              Form(
+                key: _signInFormKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      controller: _emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        labelText: "Email",
+                        hintText: "abc@domain.com",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                       ),
-                      const CustomText("Remember Me"),
-                    ],
-                  ),
-                  const CustomText(
-                    "Forgot Password",
-                    color: active,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 15),
-              InkWell(
-                onTap: () {
-                  menuController.makeActive(overviewPageDisplayName);
-                  Get.offAllNamed(rootRoute);
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: active,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  alignment: Alignment.center,
-                  width: double.maxFinite,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  child: const CustomText(
-                    "Login",
-                    color: Colors.white,
-                  ),
+                      validator: (val) {
+                        if (val == null || val.isEmpty) {
+                          return 'Enter your Email';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 15),
+                    TextFormField(
+                      controller: _passwordController,
+                      obscureText: !_passwordVisible,
+                      keyboardType: TextInputType.visiblePassword,
+                      decoration: InputDecoration(
+                        labelText: "Password",
+                        hintText: "12345678",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _passwordVisible = !_passwordVisible;
+                            });
+                          },
+                          icon: Icon(
+                            _passwordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                          ),
+                        ),
+                      ),
+                      validator: (val) {
+                        if (val == null || val.isEmpty) {
+                          return 'Enter your password';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 15),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Checkbox(
+                              value: checkedValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  checkedValue = value ?? false;
+                                });
+                              },
+                            ),
+                            const CustomText("Remember Me"),
+                          ],
+                        ),
+                        const CustomText(
+                          "Forgot Password",
+                          color: active,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 15),
+                    InkWell(
+                      onTap: () {
+                        if (_signInFormKey.currentState!.validate()) {
+                          // menuController.makeActive(overviewPageDisplayName);
+                          // Get.offAllNamed(rootRoute);
+                          signInUser();
+                        }
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: active,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        alignment: Alignment.center,
+                        width: double.maxFinite,
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        child: const CustomText(
+                          "Login",
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(height: 15),

@@ -1,5 +1,6 @@
 import 'package:admin_dashboard_web/constants/style.dart';
 import 'package:admin_dashboard_web/controllers/navigation_controller.dart';
+import 'package:admin_dashboard_web/controllers/user_controller.dart';
 import 'package:admin_dashboard_web/layout.dart';
 import 'package:admin_dashboard_web/pages/404/error_page.dart';
 import 'package:admin_dashboard_web/pages/authentication/authentication.dart';
@@ -12,6 +13,7 @@ import 'controllers/menu_controller.dart';
 void main() {
   Get.put(SideMenuController());
   Get.put(NavigationController());
+  Get.put(UserController());
   runApp(const MyApp());
 }
 

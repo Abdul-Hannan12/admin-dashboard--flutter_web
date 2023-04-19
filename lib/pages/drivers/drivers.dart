@@ -1,4 +1,4 @@
-import 'package:admin_dashboard_web/constants/style.dart';
+import 'package:admin_dashboard_web/constants/utils.dart';
 import 'package:admin_dashboard_web/pages/drivers/widgets/drivers_table.dart';
 import 'package:admin_dashboard_web/widgets/custom_text.dart';
 import 'package:flutter/material.dart';

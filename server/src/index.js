@@ -1,6 +1,7 @@
 // IMPORTS FROM PACKAGES
 const express = require("express");
 const dotenv = require("dotenv");
+const cors = require("cors");
 
 // IMPORTS FROM FILES
 const authRoute = require("./routes/authRoutes");
@@ -15,6 +16,7 @@ dotenv.config();
 dbconnect();
 
 // MIDDLEWARES
+app.use(cors());
 app.use(express.json());
 app.use("/api/admin", authRoute);
 
